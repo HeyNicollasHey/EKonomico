@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Usuário</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Cor de fundo branca */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 400px; /* Largura do bloco do formulário */
+            margin: 100px auto; /* Centraliza o bloco verticalmente e horizontalmente */
+            background-color: #ffffff; /* Cor de fundo do bloco */
+            padding: 20px; /* Espaçamento interno */
+            border-radius: 10px; /* Borda arredondada */
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+        h1 {
+            text-align: center; /* Centraliza o título */
+            color: #008000; /* Cor verde */
+        }
+        form {
+            text-align: center; /* Centraliza o formulário */
+        }
+        label {
+            display: block; /* Exibe cada label em uma nova linha */
+            margin-bottom: 10px; /* Espaçamento inferior */
+            color: #333; /* Cor do texto do label */
+        }
+        input, select {
+            width: 100%; /* Largura total do input/select */
+            padding: 10px; /* Espaçamento interno */
+            margin-bottom: 20px; /* Espaçamento inferior */
+            border-radius: 5px; /* Borda arredondada */
+            border: 1px solid #ccc; /* Borda */
+            box-sizing: border-box; /* Inclui padding e borda na largura total */
+        }
+        button {
+            width: 100%; /* Largura total do botão */
+            padding: 10px; /* Espaçamento interno */
+            border: none; /* Remove a borda */
+            border-radius: 5px; /* Borda arredondada */
+            background-color: #008000; /* Cor de fundo verde */
+            color: #ffffff; /* Cor do texto do botão */
+            cursor: pointer; /* Altera o cursor ao passar o mouse sobre o botão */
+            transition: background-color 0.3s; /* Transição suave */
+        }
+        button:hover {
+            background-color: #006400; /* Cor de fundo do botão ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastrar Usuário</h1>
+    <form action="/cadastrarusuario" method="post" enctype="multipart/form-data">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required><br>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required><br>
+
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required><br>
+
+      <label for="tipo">Tipo de Usuário:</label>
+      <select id="tipo" name="tipo" required>
+        <option value="consumidor">Consumidor</option>
+        <option value="admin">Administrador</option>
+      </select><br>
+
+      <label for="foto">Foto de Perfil:</label>
+      <input type="file" id="foto" name="file" required><br>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</body>
+</html>

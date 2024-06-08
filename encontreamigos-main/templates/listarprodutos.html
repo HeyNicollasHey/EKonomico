@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Cadastrados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #008000;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .produto {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .produto img {
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+        .produto a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .produto a:hover {
+            color: #ff6600;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 170px;
+        }
+        button[type="submit"] {
+            background-color: #008000;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .pedido {
+            margin: 0 auto;
+            width: 200px;
+            height: 170px;
+        }
+        .produto button {
+            background-color: #ff6600;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <img src="/static/imagens/EKonomico.png" class="logo">
+    <h1>Nossos produtos</h1>
+    <div class="pedido">
+        <form method="post">
+            <p>Qual produto você quer comprar?:</p>
+            <input type="text" name="nome" id="nome" required>
+            <p>Escolha a quantidade:</p>
+            <input type="number" name="pedido" id="pedido" required>
+            <p></p>
+            <button type="submit">COMPRAR</button>
+        </form>
+    </div>
+    <div>
+        <br>
+        <br>
+        <br>
+    </div>
+    <div class="container">
+        {% for produto in produtos %}
+            <div class="produto">
+                <img src="{{ url_for('static', filename='imagens/' + produto.pathft) }}" alt="{{ produto.nome }}" width="100" height="100">
+                <a href="#">{{ produto.nome }}</a>
+                <p>Preço: R$ {{ produto.preco }}</p>
+                <p>Validade: {{ produto.data_validade }}</p>
+                <p>Quantidade: {{ produto.quantidade }}</p>
+                <p>Marca: {{ produto.marca }}</p>
+                {% extends "base.html" %}
+{% block content %}
+
+<h1>Produtos Disponíveis</h1>
+
+{% for produto in produtos %}
+<div>
+    <h2>{{ produto.nome }}</h2>
+    <p>Preço: R$ {{ produto.preco }}</p>
+    <form action="/analisarvendas" method="GET">
+        <input type="hidden" name="produto" value="{{ produto.nome }}">
+        <button type="submit">Analisar Vendas</button>
+    </form>
+</div>
+{% endfor %}
+
+{% endblock %}
+                <br>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

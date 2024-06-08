@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ekonomico - Cadastrar Produtos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #008000;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        a {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            width: 100%;
+            background-color: #008000;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button[type="submit"]:hover {
+            background-color: #006400;
+        }
+      .logo {
+            display: block;
+            margin: 0 auto; /* Centraliza horizontalmente */
+            width: 200px; /* Largura da imagem */
+            height: 170px; /* Altura da imagem */
+        }
+    </style>
+</head>
+<body>
+    <img src="/static/imagens/Ekonomico.png" class="logo">
+    <h2>Cadastrar Produtos</h2>
+    <form action="/cadastrarproduto" method="post" enctype="multipart/form-data">
+        <p>
+            <a>Nome:</a>
+            <input type="text" name="nome" required>
+        </p>
+        <p>
+            <a>Validade:</a>
+            <input type="date" name="validade" required>
+        </p>
+        <p>
+            <a>Quantidade:</a>
+            <input type="number" name="quantidade" required>
+        </p>
+        <p>
+            <a>Preço:</a>
+            <input type="number" name="preco" required>
+        </p>
+        <p>
+            <a>Marca:</a>
+            <input type="text" name="marca" required>
+        </p>
+        <p>
+            <a>Inserir foto:</a>
+            <input type="file" name="file" required>
+        </p>
+        <p>
+            <button type="submit">Cadastrar produto</button>
+        </p>
+    </form>
+</body>
+</html>
